@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Crear Venta</h2>
+
+<div class="jumbotron">
+
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="form-group">
+                <label class="form-label">Cliente</label>
+                <input type="text" class="form-control" name="customer_dummy" id="customer_dummy" />
+            </div>
+            <div class="form-group">
+                <label class="form-label">Método de Pago</label>
+                <input type="text" class="form-control" name="payment_dummy" id="payment_dummy" />
+            </div>
+            <div class="form-group">
+                <label class="form-label">Articulo</label>
+                <input type="text" class="form-control" name="article" id="article" />
+            </div>
+            <div class="form-group">
+                <label class="form-label">Cantidad</label>
+                <input type="text" class="form-control" name="quantity" id="quantity" />
+            </div>
+            <div class="form-group">
+                <label class="form-label">Precio</label>
+                <div class="col-auto">
+                    <label class="sr-only" for="inlineFormInputGroup">Precio Unitario</label>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">$</div>
+                        </div>
+                        <input type="text" class="form-control" name="unit_price" id="unit_price" />
+                    </div>
+                </div>
+
+            </div>
+            <button type="button" id="addSale" name="addSale" class="btn-lg btn-success">Agregar</button>
+        </div>
+
+        <form action="/Sale/Create" method="post">
+            <input type="hidden" name="customer" id="customer" value="" />
+            <input type="hidden" name="payment" id="payment" value="" />
+            <div class="col-sm-7">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Num</th>
+                                <th scope="col">Articulo</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Precio Unitario</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="articlesOnSale">
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4">Gran Total</td>
+                                <td colspan="1">
+                                    <span id="grandTotal" style="float:right;"></span>
+                                    <input type="hidden" name="grandTotalOfSale" id="grandTotalOfSale" value="" />
+                                </td>
+
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <br />
+                <button type="submit" class="btn-lg btn-success" style="float:right;">Registrar Venta</button>
+            </div>
+
+        </form>
+    </div>
+</div>
